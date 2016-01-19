@@ -47,6 +47,8 @@ On défini les themes bootstrap dans symfony et on créé des alias pour boostra
 ```php
 # app/config/config.yml
 twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
     form_themes:
         # Default:
         - form_div_layout.html.twig
@@ -55,26 +57,26 @@ twig:
         - bootstrap_3_layout.html.twig
         - bootstrap_3_horizontal_layout.html.twig
 assetic:
-  assets:
-    bootstrap_js:
-      inputs:
-        - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/affix.js'
-        - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/alert.js'
-        - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/button.js'
-        - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/carousel.js'
-        - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/collapse.js'
-        - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/dropdown.js'
-        - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/modal.js'
-        - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/popover.js'
-        - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/scrollspy.js'
-        - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/tab.js'
-        - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/tooltip.js'
-        - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/transition.js'
-      filters: [?yui_js]
-    bootstrap_less:
-      inputs:
-        - '%kernel.root_dir%/../vendor/twbs/bootstrap/less/bootstrap.less'
-    filters: [lessphp]
+    assets:
+        bootstrap_js:
+            inputs:
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/affix.js'
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/alert.js'
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/button.js'
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/carousel.js'
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/collapse.js'
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/dropdown.js'
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/modal.js'
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/popover.js'
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/scrollspy.js'
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/tab.js'
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/tooltip.js'
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/js/transition.js'
+              filters: [?yui_js]
+        bootstrap_less:
+            inputs:
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap/less/bootstrap.less'
+            filters: [lessphp]
 ```
 
 ## 4 - Installation de Jquery
