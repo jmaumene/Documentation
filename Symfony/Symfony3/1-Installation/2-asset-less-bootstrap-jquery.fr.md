@@ -37,7 +37,26 @@ assetic:
             apply_to: '\.less$'
 ```
 
-## 3 - Installation de Boostrap
+## 3 - Installation de yui compressor
+```shell
+$ composer repackagist/yuicompressor-bin
+```
+
+```php
+assetic:
+          yui_css:
+              jar: '%kernel.root_dir%/../vendor/pakagist/yuicompressor-bin'
+          yui_js:
+              jar: '%kernel.root_dir%/../vendor/pakagist/yuicompressor-bin'
+```
+
+Puis on met à jours les assetics
+```shell
+$ bin/console cache:clear --env=prod --no-debug
+$ bin/console cache:clear --env=dev --no-debug
+```
+
+## 4 - Installation de Boostrap
 
 ```shell
 $ composer require twbs/bootstrap
@@ -79,7 +98,7 @@ assetic:
             filters: [lessphp]
 ```
 
-## 4 - Installation de Jquery
+## 5 - Installation de Jquery
 
 ```shell
 $ composer require components/jquery
@@ -97,7 +116,7 @@ assetic:
             filters: [?yui_js]
 ```
             
-## 5 - Utilisation
+## 6 - Utilisation
 
 Inserer les CSS :
 
