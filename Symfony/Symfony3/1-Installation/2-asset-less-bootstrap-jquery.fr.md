@@ -1,7 +1,9 @@
 # Installation de Bootstrap et Jquery avec Composer
 
 Ce Document présente l'installation de Bootstrap, Jquery et un compilateur Less avec Composer pour Symfony 3.
-Beaucoup de documentation proposent d'utiliser le compilateur lessphp de leafo avec symfony, seulement il ne sait pas compiler Boostrap 3.3. Je vous propose donc une alternative avec less.php de oyejorge.
+Beaucoup de documentations proposent d'utiliser le compilateur lessphp de leafo avec symfony, seulement 
+il ne sait pas compiler Boostrap 3.3. Je vous propose donc une alternative avec less.php de oyejorge.
+J'ai également rencontré des erreurs avec glyphicons
 
 ## 1 - Installation de Assetic
 
@@ -50,12 +52,6 @@ assetic:
               jar: '%kernel.root_dir%/../vendor/pakagist/yuicompressor-bin'
 ```
 
-Puis on met à jours les assetics
-```shell
-$ bin/console cache:clear --env=prod --no-debug
-$ bin/console cache:clear --env=dev --no-debug
-```
-
 ## 4 - Installation de Boostrap
 
 ```shell
@@ -96,6 +92,26 @@ assetic:
             inputs:
                 - '%kernel.root_dir%/../vendor/twbs/bootstrap/less/bootstrap.less'
             filters: [lessphp]
+        bootstrap_glyphicons_ttf:
+          inputs:
+              - %kernel.root_dir%/../vendor/twbs/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf
+          output: "fonts/glyphicons-halflings-regular.ttf"
+        bootstrap_glyphicons_eot:
+          inputs:
+              - %kernel.root_dir%/../vendor/twbs/bootstrap/dist/fonts/glyphicons-halflings-regular.eot
+          output: "fonts/glyphicons-halflings-regular.eot"
+        bootstrap_glyphicons_svg:
+          inputs:
+              - %kernel.root_dir%/../vendor/twbs/bootstrap/dist/fonts/glyphicons-halflings-regular.svg
+          output: "fonts/glyphicons-halflings-regular.svg"
+        bootstrap_glyphicons_woff:
+          inputs:
+              - %kernel.root_dir%/../vendor/twbs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff
+          output: "fonts/glyphicons-halflings-regular.woff"
+        bootstrap_glyphicons_woff2:
+          inputs:
+              - %kernel.root_dir%/../vendor/twbs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+          output: "fonts/glyphicons-halflings-regular.woff2"
 ```
 
 ## 5 - Installation de Jquery
@@ -115,8 +131,14 @@ assetic:
                 - '%kernel.root_dir%/../vendor/components/jquery/jquery.js'
             filters: [?yui_js]
 ```
+
+## 6 - Mise a jours des liens assetics
+```shell
+$ bin/console assets:install --symlink
+$ bin/console cache:clear --env=dev
+```
             
-## 6 - Utilisation
+## 7 - Utilisation
 
 Inserer les CSS :
 
